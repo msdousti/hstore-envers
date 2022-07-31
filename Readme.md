@@ -66,8 +66,7 @@ public abstract class ImmutableType<T> implements UserType, Type {
 Apparently, Envers doesn't like `Type`. If the class only implemented `UserType`, it would be OK (however,
 read [this article](https://vladmihalcea.com/hibernate-no-dialect-mapping-for-jdbc-type/) for a possible issue with
 native queries). However, when it implements `Type`, Envers fails because it expects the types to implement a child
-of `Type`, called `BasicType` (
-see [here](https://github.com/hibernate/hibernate-orm/blob/d0e5692026a631dfa925be933a14e0e9b5cc6829/hibernate-envers/src/main/java/org/hibernate/envers/configuration/internal/metadata/BasicMetadataGenerator.java#L46)):
+of `Type`, called `BasicType` (see [here](https://github.com/hibernate/hibernate-orm/blob/d0e5692026a631dfa925be933a14e0e9b5cc6829/hibernate-envers/src/main/java/org/hibernate/envers/configuration/internal/metadata/BasicMetadataGenerator.java#L46)):
 
 ```java
 public final class BasicMetadataGenerator {
@@ -84,7 +83,7 @@ public final class BasicMetadataGenerator {
 
 You can
 see [the logic](https://github.com/hibernate/hibernate-orm/blob/d0e5692026a631dfa925be933a14e0e9b5cc6829/hibernate-envers/src/main/java/org/hibernate/envers/configuration/internal/metadata/AuditMetadataGenerator.java#L199-L215)
-where it checks for a type and throws an exception if the type is neither Basic nor Composite.
+where it checks for a type and throws an exception if the type is neither Basic nor Component (= Composite).
 
 ## Workaround
 
