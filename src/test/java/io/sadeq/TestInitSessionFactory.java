@@ -12,13 +12,14 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
 public class TestInitSessionFactory {
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({"rawtypes", "resource"})
     @Container
     public static PostgreSQLContainer postgreSQLContainer =
-            new PostgreSQLContainer("postgres:14.4-alpine")
+            (PostgreSQLContainer) new PostgreSQLContainer("postgres:14.4-alpine")
                     .withDatabaseName("postgres")
                     .withUsername("postgres")
-                    .withPassword("postgres");
+                    .withPassword("postgres")
+                    .withInitScript("database/INIT.sql");
 
     @BeforeAll
     public static void init() {

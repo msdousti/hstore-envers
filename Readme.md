@@ -1,3 +1,6 @@
+# Deprecation
+This repo was intended to serve as a test case for [hibernate-types issue #463](https://github.com/vladmihalcea/hibernate-types/issues/463). The bug has been fixed based on [PR #464](https://github.com/vladmihalcea/hibernate-types/pull/464). As such, the repo is deprecated and archived.
+
 # Purpose
 
 This project shows what happens when an entity has an `hstore` column type (PostgreSQL),
